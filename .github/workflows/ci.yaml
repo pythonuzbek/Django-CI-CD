@@ -20,7 +20,7 @@ jobs:
       - name: Push to GitHub
         if: ${{ steps.test.outcome == 'success' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.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 }}
         run: |
           git config --local user.email "nusratullo3304@gmail.com"
           git config --local user.name "pythonuzbek"
