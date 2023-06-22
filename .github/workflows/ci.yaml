@@ -8,9 +8,9 @@ jobs:
       postgres:
         image: postgres:alpine
         env:
-          POSTGRES_NAME:test
-          POSTGRES_USER:postgres
-          POSTGRES_PASSWORD:1
+          POSTGRES_DB: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 1
         ports:
           - 5432:5432
     runs-on: ubuntu-22.04
