@@ -40,7 +40,7 @@ jobs:
           username: root
           password: nnE&$Z7&35@.&zg
           script: |
-            cd /var/www/
+            cd /var/www/Django-CI-CD
             git pull
             systemctl restart Django-CI-CD.service
 
