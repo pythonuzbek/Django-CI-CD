@@ -23,3 +23,5 @@ urlpatterns = [
     path('',include('apps.urls')),
     path('admin/', admin.site.urls)
 ]
+
+error
