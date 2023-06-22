@@ -1,0 +1,45 @@
+name: Django API
+
+on:
+  push:
+    branches: [master]
+
+
+jobs:
+  test:
+    services:
+      postgres:
+        image: postgres:alpine
+        env:
+          POSTGRES_DB: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 1
+        ports:
+          - 5432:5432
+    runs-on: ubuntu-22.04
+    env:
+      DJANGO_SETTINGS_MODULE: "root.settings"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: Install Requirements
+        run: pip3 install -r requirements.txt
+      - name: Run Tests
+        run: pytest
+
+  deploy:
+    runs-on: ubuntu-22.04
+    needs: test
+    steps:
+      - name: executing remote ssh using password
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 138.68.72.238
+          username: root
+          password: nnE&$Z7&35@.&zg
+          script: |
+            git pull
+            systemctl restart Django-CI-CD.service
+
