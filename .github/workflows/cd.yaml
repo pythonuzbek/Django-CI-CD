@@ -38,7 +38,7 @@ jobs:
         with:
           host: 138.68.72.238
           username: root
-          password: nnE&$Z7&35@.&zg
+          password: 0000
           script: |
             cd /var/www/Django-CI-CD
             git pull
